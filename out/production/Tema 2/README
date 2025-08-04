@@ -1,0 +1,22 @@
+// Usturoi Flavius-Gabriel, 336CC
+// Tema 2 - Manager de comenzi de Black Friday in Java
+
+
+				EXECUTIA PROGRAMULUI
+
+	Initial, thread-ul principal va lansa cele P thread-uri de nivel 1.
+Acestea vor partaja scanner-ul fisierului "orders.txt" si il vor citi in mod
+paralel in functie de variabila atomica "turn". Ea va dicta al carui thread
+este randul sa citeasca linia curenta din fisier. Astfel, se va face o impar-
+tire aproximativ egala a numarului de comenzi de procesat.
+	Mai departe, fiecare thread va incerca sa obtina cat mai multe thread-
+uri de nivel 2 din cele P disponibile, in functie de valoarea variabilei ato-
+mice "levelTwoThreads". Bineinteles, este tratat si cazul in care un thread
+nu apuca sa obtina niciun fir de executie de nivel 2. Practic, el va astepta
+eliberarea a cel putin un thread inainte sa treaca mai departe.
+	Dupa ce au fost lansate si firele de nivel 2, acestea vor incepe sa cau-
+te in "order_products.txt" produsele de care sunt responsabile si le marcheaza
+cu "shipped".
+	In final, dupa ce toate produsele au fost marcate cu "shipped" de catre
+threadul de nivel 2 in cadrul comenzii de care se ocupa threadul de nivel 1 pa-
+rinte, cel din urma va putea marca respectiva comanda drept livrata.
